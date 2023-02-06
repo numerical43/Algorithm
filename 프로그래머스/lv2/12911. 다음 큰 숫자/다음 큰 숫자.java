@@ -4,11 +4,9 @@ class Solution {
         int nOne = Integer.bitCount(n);
         int answer;
 
-        for (int k = n + 1; ; k++) {
-            int kOne = Integer.bitCount(k);
-
-            if (kOne == nOne) {
-                answer = k;
+        while (true) {
+            if (Integer.bitCount(++n) == nOne) {
+                answer = n;
                 break;
             }
         }
