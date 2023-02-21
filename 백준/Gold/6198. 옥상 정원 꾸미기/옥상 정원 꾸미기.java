@@ -8,6 +8,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
         Stack<Integer> stack = new Stack<>();
+        // n 이 최대 80,000 까지 입력되기 떄문에 int 의 범위를 초과할 수 있다.
         long sum = 0;
 
         for (int i = 0; i < n; i++) {
