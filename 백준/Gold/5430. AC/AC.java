@@ -1,25 +1,20 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
-import java.util.StringTokenizer;
-import java.util.ArrayDeque;
+import java.util.*;
 
 public class Main {
-    public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     public static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws IOException {
-        ArrayDeque<Integer> deque;
-        StringTokenizer st;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int t = Integer.parseInt(br.readLine());
 
-        int T = Integer.parseInt(br.readLine());
-
-        while (T-- > 0) {
+        while (t-- > 0) {
             String command = br.readLine();
             int n = Integer.parseInt(br.readLine());
-            st = new StringTokenizer(br.readLine(), "[],");
-
-            deque = new ArrayDeque<>();
+            StringTokenizer st = new StringTokenizer(br.readLine(), "[],");
+            Deque<Integer> deque = new ArrayDeque<>();
 
             for (int i = 0; i < n; i++)
                 deque.add(Integer.parseInt(st.nextToken()));
@@ -28,52 +23,40 @@ public class Main {
         }
 
         System.out.println(sb);
-
     }
 
-    public static void AC(String command, ArrayDeque<Integer> deque) {
+    public static void AC(String command, Deque<Integer> deque) {
         boolean front = true;
 
         for (char cmd : command.toCharArray()) {
-
-            if (cmd == 'R') {
+            if (cmd == 'R')
                 front = !front;
-                continue;
-            }
-
-            if (front) {
-                if (deque.pollFirst() == null) {
-                    sb.append("error\n");
-                    return;
+            else if (cmd == 'D') {
+                if (!deque.isEmpty()) {
+                    if (front)
+                        deque.removeFirst();
+                    else
+                        deque.removeLast();
                 }
-            } 
-            else {
-                if (deque.pollLast() == null) {
-                    sb.append("error\n");
+                else {
+                    sb.append("error").append('\n');
                     return;
                 }
             }
         }
-        makePrintString(deque, front);
-    }
 
-    public static void makePrintString(ArrayDeque<Integer> deque, boolean isRight) {
-        sb.append('[');
-
-        if (deque.size() > 0) {
-            if (isRight) {
-                sb.append(deque.pollFirst());
-                while (!deque.isEmpty()) {
-                    sb.append(',').append(deque.pollFirst());
-                }
-            } else {
-                sb.append(deque.pollLast());
-                while (!deque.isEmpty()) {
-                    sb.append(',').append(deque.pollLast());
-                }
-            }
+        List<Integer> temp = new ArrayList<>();
+        String answer;
+        if (front) {
+            while (!deque.isEmpty())
+                temp.add(deque.pollFirst());
         }
+        else {
+            while (!deque.isEmpty())
+                temp.add(deque.pollLast());
+        }
+        answer = temp.toString().replaceAll(" ", "");
+        sb.append(answer).append('\n');
 
-        sb.append(']').append('\n');
     }
 }
