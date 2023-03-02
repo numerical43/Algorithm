@@ -4,15 +4,13 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main {
-    static Queue<point> queue = new LinkedList<>();
-    static boolean[][] check;
-    // 상, 하, 좌, 우
-    static int[] moveX = {-1, 1, 0, 0};
-    static int[] moveY = {0, 0, -1, 1};
-    static int[][] box;
     static int n, m;
-
-    public static int BFS() {
+    
+    public static int BFS(Queue<point> queue, int[][] box) {
+        boolean[][] check = new boolean[n][m];
+        // 상, 하, 좌, 우
+        int[] moveX = {-1, 1, 0, 0};
+        int[] moveY = {0, 0, -1, 1};
         int date = 0;
 
         while (!queue.isEmpty()) {
@@ -52,9 +50,10 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
         m = Integer.parseInt(st.nextToken());
         n = Integer.parseInt(st.nextToken());
-        check = new boolean[n][m];
-        box = new int[n][m];
+        int[][] box = new int[n][m];
 
+
+        Queue<point> queue = new LinkedList<>();
         // 창고에 있는 토마토 위치를  box[][]와 queue 에 저장한다.
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine(), " ");
@@ -66,7 +65,7 @@ public class Main {
             }
         }
 
-        System.out.println(BFS());
+        System.out.println(BFS(queue, box));
     }
 }
 
