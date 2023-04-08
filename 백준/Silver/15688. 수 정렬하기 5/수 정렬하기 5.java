@@ -1,23 +1,21 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.io.IOException;
 
-public class Main{
+public class Main {
     public static void main(String[] args) throws Exception{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int n= Integer.parseInt(bf.readLine());
+        int [] arr = new int[n];
+        for(int i = 0; i< n; i++)
+            arr[i] = Integer.parseInt(bf.readLine());
+        
+        Arrays.sort(arr);
+
         StringBuilder sb = new StringBuilder();
-        int n = Integer.parseInt(br.readLine());
-        Integer[] array = new Integer[n];
+        for (int num : arr)
+            sb.append(num).append("\n");
         
-        for (int i = 0; i < n; i++)
-            array[i] = Integer.parseInt(br.readLine());
-        
-        Arrays.sort(array);
-
-        for (Integer num : array)
-            sb.append(num).append('\n');
-
         System.out.print(sb);
     }
 }
