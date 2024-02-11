@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/12916. 문자열 내 p와 y의 개수" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/12919. 서울에서 김서방 찾기" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/12928. 약수의 합" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/12932. 자연수 뒤집어 배열로 만들기" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/12933. 정수 내림차순으로 배치하기" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/12935. 제일 작은 수 제거하기" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/12937. 짝수와 홀수" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/82612. 부족한 금액 계산하기" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/86051. 없는 숫자 더하기" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="f6e73905-0a8b-43e8-ad13-d55ae27b8761" />
+  </component>
+</module>
